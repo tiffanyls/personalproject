@@ -1,13 +1,25 @@
 import axios from 'axios';
 
 //const
-
+const GET_USERS = "GET_USERS";
 
 
 //action creators
 
+export function getUsers(){
+    return {
+        type: GET_USERS,
+        payload: axios
+        .get("/api/test")
+        .then(response => {
+          return response.data;
+        })
+        .catch(console.log)
+    }
+}
+
 const initialState = {
-    user: {},
+    users: [],
 
 }
 

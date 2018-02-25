@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 class App extends Component {
   componentDidMount() {
-    axios
-      .get("/api/test")
-      .then(response => {
-        console.log(response);
-      })
-      .catch(console.log);
+    
   }
   
   render() {
+    console.log(this.props);
     return (
       <div className="App">
         <header className="App-header">
@@ -27,5 +24,6 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = state => state;
 
-export default App;
+export default connect(mapStateToProps)(App);
