@@ -11,7 +11,10 @@ const port = 3001;
 
 const app = express();
 
-
+massive(process.env.CONNECTION_STRING).then (db=> {
+    app.set('db', db);
+})
+    .catch(console.log);
 
 app.use(json());
 app.use(cors());
@@ -25,7 +28,12 @@ app.use(session({
 }}));
 
 app.get("/api/test", (req, res) => {
-    res.status(200).json({ message: "Successfully Connected" });
+    req.app.get('db').getUsers()
+    .then(response => {
+        res.status(200).json(response)
+    }).catch(err => {
+        res.status(500).json(err);
+    })
   });
 
 app.listen(port, () => {
