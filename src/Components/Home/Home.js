@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
 
-class Home extends Component(){
+import Header from './../Header/Header';
+
+class Home extends Component{
+    
     render(){
-        return "Home";
+        return <div>
+        <Header />
+        </div>
     }
 }
 export default Home;

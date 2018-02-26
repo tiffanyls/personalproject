@@ -8,6 +8,7 @@ CREATE TABLE users (
 
 CREATE TABLE images (
     image_id serial primary key,
+    image text,
     location varchar(255),
     description text,
     city varchar(50),
