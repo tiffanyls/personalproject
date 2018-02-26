@@ -1,4 +1,4 @@
-import React {Component} from 'react';
+import React, {Component} from 'react';
 
 import Header from './../Header/Header';
 
@@ -6,11 +6,13 @@ class User_Account extends Component {
     constructor(props) {
     super(props)
     this.state = {
-        images: []
+        images: [],
+        
+
     }
 }
 }
 
-render(){
-    return
+render() {
+    return 
 }
