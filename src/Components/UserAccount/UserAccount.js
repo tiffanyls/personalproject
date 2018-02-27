@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-
 import Header from './../Header/Header';
+import UserUploader from './UserUploader/UserUploader';
 
-class User_Account extends Component {
+class UserAccount extends Component {
     constructor(props) {
     super(props)
     this.state = {
@@ -11,8 +11,14 @@ class User_Account extends Component {
 
     }
 }
-}
+
 
 render() {
-    return 
+    return (
+        <UserUploader />
+    )
+
 }
+}
+
+export default UserAccount;
