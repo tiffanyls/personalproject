@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import routes from './routes';
-import Home from './Components/Home/Home';
+import {withRouter} from 'react-router-dom';
+
 
 class App extends Component {
   // componentDidMount() {
@@ -14,11 +15,11 @@ class App extends Component {
     console.log(this.props);
     return (
       <div>
-        <Home />
+        {routes}
       </div>
     );
   }
 }
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));

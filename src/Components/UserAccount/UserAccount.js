@@ -15,7 +15,10 @@ class UserAccount extends Component {
 
 render() {
     return (
+        <div>
+        <Header />
         <UserUploader />
+        </div>
     )
 
 }

@@ -6,11 +6,11 @@ import vplogo from './vplogo.png';
 
 
 const Header = () => (
-    <header class = "header">
+    <header className = "header">
     <div>
     <Link to={`/`}>
-    <img src={vplogo} class ="logo" alt="VP Logo" /></Link>
-    <div class="name"> VANTAGE POINT </div>
+    <img src={vplogo} className ="logo" alt="VP Logo" /></Link>
+    <div className="name"> VANTAGE POINT </div>
     </div>
 
 

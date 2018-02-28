@@ -1,26 +1,43 @@
 import React, {Component} from 'react';
 import firebase from '../../../fire';
 
-class UserUploader extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            file: "",
-            location: "",
-            city: "",
-            state: "",
-            country: ""
-        };
+class UserUploader extends Component {
+    constructor() {
+        super();
+        this.state={};
+
+        // this.state = {
+            
+        //     location: "",
+        //     city: "",
+        //     state: "",
+        //     country: ""
+        // };
 
         this.uploadImage = this.uploadImage.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.submitForm = this.submitForm.bind(this);
     }
 
-    uploadImage(){
+    handleChange(stateKey, event) {
+        let obj={};
+        obj[stateKey] = event.target.value
+        this.setState(obj);
+
+      }
+
+    submitForm(e){
+        e.preventDefault();
+        console.log('form')
+        
+    
+    }
+    uploadImage(file){
         const storageRef = firebase.storage().ref();
         const uploadTask = storageRef
-            .child (`images/${this.state.file.name}`)
-            .put(this.state.file);
+            .child (`images/${file[0].name}`)
+            .put(file[0]);
             uploadTask.on(
                 'state_changed',
                 (snapshot) => {
@@ -37,22 +54,26 @@ class UserUploader extends Component {
         return (
             <div>
                 <h1> Upload New </h1>
-                <form onSubmit={(event) => this.uploadImage(event)}>
-                <label>
-                    Location
-                <input type ="text" location={this.state.value} onChange={this.handleChange} placeholder="Enter location, ex: Eiffel Tower or 500 Main St" required/></label>
-                <label>
-                    City
-                <input type="text" city={this.state.value} onChange={this.handleChange} placeholder="Paris" required/></label>
-                <label>
-                    State
-                <input type="text" state={this.state.value} onChange={this.handleChange} placeholder="Texas"/></label>
-                <label>
-                    Country
-                    <input type="text" state={this.state.value} onChange={this.handleChange} placeholder="France" required/> </label>
-                <input type="file" onChange={this.uploadImage}/>
-                <button onClick ={this.uploadImage}>Upload New</button>
+                <form onSubmit={this.submitForm}>           
+            <label>
+              Location
+                <input type ="text" onChange={(event) => this.handleChange("location", event)} placeholder="ex: Eiffel Tower or 500 Main St" /></label>
+            <label>
+              City
+                 <input type="text" onChange={(event) => this.handleChange("city", event)} placeholder="Paris" /></label>
+            <label>
+              State
+                <input type="text" onChange={(event) => this.handleChange("state", event)} placeholder="Texas"/></label>
+            <label>
+              Country
+                <input type="text" onChange={(event) => this.handleChange("country", event)} placeholder="France" /> </label>
+            <label>
+              Notes
+                <input type="text" onChange={(event) => this.handleChange("notes", event)} placeholder="Took from 2nd Floor"/></label>
+            <button type ="submit"></button>
                 </form>
+                <input type="file" onChange={(event) => this.uploadImage(event.target.files)}/>
+                {/* <button onClick ={this.uploadImage}>Upload New</button> */}
             </div>
         )
     }
