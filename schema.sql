@@ -3,7 +3,7 @@ CREATE TABLE users (
     username varchar(20),
     full_name varchar(255),
     email varchar(255),
-    password(10)
+    password varchar(10)
 )
 
 CREATE TABLE images (

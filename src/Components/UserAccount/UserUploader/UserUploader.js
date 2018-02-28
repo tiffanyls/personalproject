@@ -6,8 +6,6 @@ import axios from 'axios';
 class UserUploader extends Component {
     constructor() {
         super();
-        
-
         this.state = {
             image: "",
             location: "",
