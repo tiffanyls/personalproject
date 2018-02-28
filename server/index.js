@@ -27,14 +27,25 @@ app.use(session({
         maxAge: 10000
 }}));
 
-app.get("/api/test", (req, res) => {
-    req.app.get('db').getUsers()
-    .then(response => {
-        res.status(200).json(response)
-    }).catch(err => {
-        res.status(500).json(err);
+app.post('/api/imageAndMetadata', (req, res, next) => {
+    req.app.post("db")
+    .createImage()
+    .then(response =>{
+        res.status(200).json(response);
     })
-  });
+        .catch(err =>{
+            res.status(500).json(err);
+        });
+});
+
+// app.get("/api/test", (req, res) => {
+//     req.app.get('db').getUsers()
+//     .then(response => {
+//         res.status(200).json(response)
+//     }).catch(err => {
+//         res.status(500).json(err);
+//     })
+//   });
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
