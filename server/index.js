@@ -5,8 +5,10 @@ const session = require ('express-session');
 const cors = require ('cors');
 const passport = require('passport');
 const massive = require ('massive');
+const { domain, clientID, clientSecret } = require(`${__dirname}/../config`);
+const Auth0Strategy = require("passport-auth0");
 
-const strategy = require(`${__dirname}/strategy`);
+// const strategy = require(`${__dirname}/strategy`);
 
 const port = 3001;
 
@@ -30,7 +32,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(strategy);
+// passport.use(strategy);
 
 passport.serializeUser((user, done) => {
     done(null, user);
@@ -44,21 +46,22 @@ passport.deserializeUser((user, done) =>{
 passport.use(
     new Auth0Strategy(
         {
-            domain: DOMAIN,
-            clientSecret: CLIENT_SECRET,
-            clientID: CLIENT_ID,
-            scope: 'openid profile'
-            callbackURL: '/login'
+        domain: domain,
+        clientID: clientID,
+        clientSecret: clientSecret,
+        scope: 'openid profile',
+        callbackURL: '/login'
         },
         (accessToken, refreshToken, extraParams, profile, done) => {
+            console.log(profile)
             app
             .get('db')
-            .getUserByID(profile.id)
+            .getUserById(profile.id)
             .then(response => {
                 if (!response[0]){
                     app
                     .get('db')
-                    .createUserById([profile.id, profiledisplayName])
+                    .createUserById([profile.id, profile.displayName])
                     .then(created => done(null, created[0]));
                 }
                 else {

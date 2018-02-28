@@ -1,7 +1,7 @@
 CREATE TABLE users (
     user_id serial primary key,
-    username varchar(20),
-    email varchar(255),
+    id varchar(50),
+    display_name varchar(255),
 )
 
 CREATE TABLE images (

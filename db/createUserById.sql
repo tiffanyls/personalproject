@@ -1,1 +1,1 @@
-INSERT INTO users (username, email) VALUES ($1, $2) RETURNING *;
+INSERT INTO users (id, display_name) VALUES ($1, $2) RETURNING *;
