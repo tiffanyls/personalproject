@@ -28,9 +28,7 @@ app.use(session({
 }}));
 
 app.post('/api/imageAndMetadata', (req, res, next) => {
-    console.log("hit")
     const {image, location, city, state, country, notes} = req.body;
-    console.log(image, location, city, state, country, notes)
     app.get('db').createImage([image, location, city, state, country, notes])
     .then(response =>{
         res.status(200).json(response);
