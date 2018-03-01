@@ -12,7 +12,8 @@ class ImageDisplay extends Component {
 
 render(){
     return (
-        <div>
+        <div className ="cardbox">
+        <Card />
 
         </div>
     )
