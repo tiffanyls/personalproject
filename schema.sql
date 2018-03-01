@@ -12,4 +12,5 @@ CREATE TABLE images (
     state varchar(50),
     country varchar(50),
     notes text
+    user_id varchar REFERENCES users (user_id)
 )

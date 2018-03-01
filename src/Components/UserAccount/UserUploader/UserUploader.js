@@ -13,7 +13,6 @@ class UserUploader extends Component {
             state: "",
             country: "",
             notes: "",
-            
         };
 
         this.uploadImage = this.uploadImage.bind(this);
@@ -31,10 +30,6 @@ class UserUploader extends Component {
     submitForm(e){
         e.preventDefault()
         axios.post('/api/imageAndMetadata', {image: this.state.image, location: this.state.location, city: this.state.city, state: this.state.state, country: this.state.country, notes: this.state.notes })
-    
-       
-        
-    
     }
     uploadImage(file){
         const storageRef = firebase.storage().ref();

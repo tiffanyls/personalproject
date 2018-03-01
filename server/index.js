@@ -8,8 +8,6 @@ const massive = require ('massive');
 const { domain, clientID, clientSecret } = require(`${__dirname}/../config`);
 const Auth0Strategy = require("passport-auth0");
 
-// const strategy = require(`${__dirname}/strategy`);
-
 const port = 3001;
 
 const app = express();
@@ -96,14 +94,6 @@ app.post('/api/imageAndMetadata', (req, res, next) => {
         });
 });
 
-// app.get("/api/test", (req, res) => {
-//     req.app.get('db').getUsers()
-//     .then(response => {
-//         res.status(200).json(response)
-//     }).catch(err => {
-//         res.status(500).json(err);
-//     })
-//   });
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);

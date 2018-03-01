@@ -5,12 +5,8 @@ import UserUploader from './UserUploader/UserUploader';
 class UserAccount extends Component {
     constructor(props) {
     super(props)
-    this.state = {
-        images: [],
-        
-
+     
     }
-}
 
 
 render() {
@@ -18,10 +14,16 @@ render() {
         <div>
         <Header />
         <UserUploader />
+        
+
+        
         </div>
     )
+}
+}
+    
 
-}
-}
+
+
 
 export default UserAccount;
