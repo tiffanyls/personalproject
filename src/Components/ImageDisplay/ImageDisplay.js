@@ -9,12 +9,18 @@ class ImageDisplay extends Component {
 
     };
 }
+componentDidMount(){
+    axios.get('/api/userImages').then(response =>{
+        this.setState({images: response.data});
+    })
+}
 
 render(){
+    const userImages = this.state.images.map((curr, ind) => {
+    })
     return (
-        <div className ="cardbox">
-        <Card />
-
+        <div className ="cardcontainer">
+        <Card images={curr} key={ind}/>
         </div>
     )
 }

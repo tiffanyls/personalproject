@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
 
 class Card extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
     }
 
     render(){
         return (
             <div className = "card">
-                <img src = {this.state.images}/>
+                <img src = {this.props.images}/>
             <div className ="container">
-                <p>{this.state.images.location}</p>
-                <p>{this.state.images.city}</p>
-                <p>{this.state.images.state}</p>
-                <p>{this.state.images.country}</p>
-                <p>{this.state.images.notes}</p>
+                <p>{this.props.images.location}</p>
+                <p>{this.props.images.city}</p>
+                <p>{this.props.images.state}</p>
+                <p>{this.props.images.country}</p>
+                <p>{this.props.images.notes}</p>
                 </div>
             </div>
         )

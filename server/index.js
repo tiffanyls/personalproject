@@ -94,6 +94,18 @@ app.post('/api/imageAndMetadata', (req, res, next) => {
         });
 });
 
+app.get('/api/userImages', (req, res, next) => {
+    const {image, location, city, state, country, notes} = req.body;
+    app.get('db').getImagesByUser([image, location, city, state, country, notes])
+    .then(response => {
+        res.status(200).json(response);
+    })
+    .catch(err => {
+        res.status(500).json(err);    
+    }
+    );
+});
+
 app.get('/logout', (req, res) =>{
     req.session.destroy(() =>{
         res.redirect('http://localhost:3000/');
