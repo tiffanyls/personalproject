@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import Card from './../Card/Card';
 
 class ImageDisplay extends Component {
-    constructor(){
-    super();
+    constructor(props){
+    super(props);
     this.state = {
         images: [],  
 
@@ -16,3 +17,6 @@ render(){
         </div>
     )
 }
+}
+
+export default ImageDisplay;

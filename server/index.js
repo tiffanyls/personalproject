@@ -94,6 +94,11 @@ app.post('/api/imageAndMetadata', (req, res, next) => {
         });
 });
 
+app.get('/logout', (req, res) =>{
+    req.session.destroy(() =>{
+        res.redirect('http://localhost:3000/');
+    });
+});
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);

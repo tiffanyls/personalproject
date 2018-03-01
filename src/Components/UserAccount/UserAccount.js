@@ -12,6 +12,7 @@ class UserAccount extends Component {
 render() {
     return (
         <div>
+           <a href = "http://localhost:3001/logout"><button>Logout</button></a>
         <Header />
         <UserUploader />
         
