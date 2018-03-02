@@ -93,7 +93,6 @@ app.post('/api/imageAndMetadata', (req, res, next) => {
 });
 
 app.get('/api/userImages/', (req, res, next) => {
-    console.log(req.user)
     app.get('db').getImagesbyUser([req.user.user_id])
     .then(response => {
         res.status(200).json(response);
@@ -103,6 +102,16 @@ app.get('/api/userImages/', (req, res, next) => {
     }
     );
 });
+
+app.get('/api/searchAll', (req, res, next) => {
+    app.get('db').searchAll([req.query])
+    .then(response => {
+        res.status(200).json(response);
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    });
+})
 
 app.get('/logout', (req, res) =>{
     req.session.destroy(() =>{

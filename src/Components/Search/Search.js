@@ -9,10 +9,24 @@ class Search extends Component{
             results: []
         }
     }
-
+    handleChange(e) {
+        this.setState({term: event.target.value});
+      }
+    
+      handleClick(e) {
+          e.preventDefault()
+          axios.get('/api/searchAll').then.(response => {
+              this.setState({results: response.data});
+          })
+      }
 
     render(){
-        const results= this.state.results.map((curr, ind) => <)
+        const results= this.state.results.map((curr, ind) => {
+            return 
+            <div className="image-results">
+                <
+            </div>
+        }
         return (
             <div>
             <form onSubmit= {(e) => this.handleClick(e)}>
@@ -23,3 +37,5 @@ class Search extends Component{
         )
     }
 }
+
+export default Search;
