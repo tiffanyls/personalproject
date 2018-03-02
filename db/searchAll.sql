@@ -1,1 +1,1 @@
-SELECT * FROM images INNER JOIN images ON images.user_id = user_id;
+SELECT * FROM images INNER JOIN images ON images.user_id = user_id ;

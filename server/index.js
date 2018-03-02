@@ -104,7 +104,7 @@ app.get('/api/userImages/', (req, res, next) => {
 });
 
 app.get('/api/searchAll', (req, res, next) => {
-    app.get('db').searchAll([req.query])
+    app.get('db').searchAll([req.query.searchInfo])
     .then(response => {
         res.status(200).json(response);
     })

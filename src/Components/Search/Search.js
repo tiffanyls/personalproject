@@ -15,7 +15,7 @@ class Search extends Component{
     
       handleClick(e) {
           e.preventDefault()
-          axios.get('/api/searchAll').then.(response => {
+          axios.get(`/api/searchAll/?searchInfo=${this.state.term}`).then(response => {
               this.setState({results: response.data});
           })
       }
@@ -24,9 +24,17 @@ class Search extends Component{
         const results= this.state.results.map((curr, ind) => {
             return 
             <div className="image-results">
-                <
+                <img src = {this.curr.images.image}/>
+                <p>{curr.location}</p>
+                <p>{curr.city}</p>
+                <p>{curr.state}</p>
+                <p>{curr.country}</p>
+                <p>{curr.notes}</p>
             </div>
-        }
+            <div className="user-results">
+                <p>{curr.id}</p>
+            </div>
+        })
         return (
             <div>
             <form onSubmit= {(e) => this.handleClick(e)}>
