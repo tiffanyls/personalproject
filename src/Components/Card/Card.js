@@ -5,10 +5,10 @@ class Card extends Component {
         super(props);
     }
 
-    render(){
+    render(){console.log(this.props)
         return (
             <div className = "card">
-                <img src = {this.props.images}/>
+                <img src = {this.props.images.image}/>
             <div className ="container">
                 <p>{this.props.images.location}</p>
                 <p>{this.props.images.city}</p>

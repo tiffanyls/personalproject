@@ -52,6 +52,7 @@ class UserUploader extends Component {
         return (
             <div>
                 <h1> Upload New </h1>
+                <input type="file" onChange={(event) => this.uploadImage(event.target.files)} required/>
                 <form onSubmit={this.submitForm}>           
             <label>
               Location
@@ -70,7 +71,7 @@ class UserUploader extends Component {
                 <input type="text" onChange={(event) => this.handleChange("notes", event)} placeholder="Took from 2nd Floor" required/></label>
             <button onClick={this.submitForm}>Submit</button>
                 </form>
-                <input type="file" onChange={(event) => this.uploadImage(event.target.files)} required/>
+                
             </div>
         )
     }

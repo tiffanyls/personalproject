@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Card from './../Card/Card';
+import axios from 'axios';
 
 class ImageDisplay extends Component {
     constructor(props){
@@ -17,13 +18,17 @@ componentDidMount(){
 
 render(){
     const userImages = this.state.images.map((curr, ind) => {
-    })
     return (
-        <div className ="cardcontainer">
         <Card images={curr} key={ind}/>
+    )
+})
+    return (
+        <div> 
+            {userImages}
         </div>
     )
 }
 }
+
 
 export default ImageDisplay;

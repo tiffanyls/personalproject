@@ -24,21 +24,11 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: {
-        maxAge: 10000
-}}));
+    }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 // passport.use(strategy);
-
-passport.serializeUser((user, done) => {
-    done(null, user);
-})
-
-passport.deserializeUser((user, done) =>{
-    done(null, user);
-})
 
 
 passport.use(
@@ -51,7 +41,6 @@ passport.use(
         callbackURL: '/login'
         },
         (accessToken, refreshToken, extraParams, profile, done) => {
-            console.log(profile)
             app
             .get('db')
             .getUserById(profile.id)
@@ -70,8 +59,17 @@ passport.use(
     )
 );
 
+passport.serializeUser((user, done) => {
+    done(null, user);
+})
+
+passport.deserializeUser((user, done) =>{
+    done(null, user);
+})
+
+
 app.get('/login', passport.authenticate('auth0', {
-    successRedirect: '/me',
+    successRedirect: 'http://localhost:3000/user',
     failureRedirect: '/login',
     failureFlash: true
 }));
@@ -79,13 +77,13 @@ app.get('/login', passport.authenticate('auth0', {
 app.get('/me', (req, res, next) =>{
     if(!req.user) res.redirect('/login');
     else {
-        res.status(200).json(req.user);
+        res.status(200).send(req.user)
     }
 })
 
 app.post('/api/imageAndMetadata', (req, res, next) => {
-    const {image, location, city, state, country, notes} = req.body;
-    app.get('db').createImage([image, location, city, state, country, notes])
+    const {image, location, city, state, country, notes, user_id} = req.body;
+    app.get('db').createImage([image, location, city, state, country, notes, req.user.user_id])
     .then(response =>{
         res.status(200).json(response);
     })
@@ -94,14 +92,14 @@ app.post('/api/imageAndMetadata', (req, res, next) => {
         });
 });
 
-app.get('/api/userImages', (req, res, next) => {
-    const {image, location, city, state, country, notes} = req.body;
-    app.get('db').getImagesByUser([image, location, city, state, country, notes])
+app.get('/api/userImages/', (req, res, next) => {
+    console.log(req.user)
+    app.get('db').getImagesbyUser([req.user.user_id])
     .then(response => {
         res.status(200).json(response);
     })
     .catch(err => {
-        res.status(500).json(err);    
+        res.status(500).json(err); 
     }
     );
 });
