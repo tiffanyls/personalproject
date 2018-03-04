@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Card from './../Card/Card';
 import axios from 'axios';
 
+
+
+
 class ImageDisplay extends Component {
     constructor(props){
     super(props);

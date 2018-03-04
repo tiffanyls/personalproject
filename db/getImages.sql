@@ -1,0 +1,3 @@
+SELECT image FROM Images 
+ORDER BY RANDOM()
+LIMIT 1;

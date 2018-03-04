@@ -20,3 +20,9 @@
     margin: 0 auto;
     line-height: 100px;
 }
+
+.name:hover{
+    color: #ffc740;
+
+
+}

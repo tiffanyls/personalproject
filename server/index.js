@@ -113,6 +113,17 @@ app.get('/api/searchAll', (req, res, next) => {
     });
 })
 
+app.get('/api/getImages', (req, res, next) => {
+    const {image} = req.body;
+    app.get('db').getImages([image])
+    .then(response =>{
+        res.status(200).json(response);
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    })
+})
+
 app.get('/logout', (req, res) =>{
     req.session.destroy(() => {
         res.redirect('http://localhost:3000/');
