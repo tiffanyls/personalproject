@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-class Search extends Component{
+class SearchBar extends Component{
     constructor(props){
         super(props);
         this.state = {
             term: "",
             results: []
         }
+        this.handleChange=this.handleChange.bind(this);
+        this.handleClick=this.handleClick.bind(this);
     }
     handleChange(e) {
-        this.setState({term: event.target.value});
+        this.setState({term: e.target.value});
       }
     
       handleClick(e) {
@@ -22,7 +24,8 @@ class Search extends Component{
 
     render(){
         const results= this.state.results.map((curr, ind) => {
-            return 
+            return (
+                <div>
             <div className="image-results">
                 <img src = {this.curr.images.image}/>
                 <p>{curr.location}</p>
@@ -34,11 +37,12 @@ class Search extends Component{
             <div className="user-results">
                 <p>{curr.id}</p>
             </div>
-        })
+                </div>
+        )}) 
         return (
             <div>
             <form onSubmit= {(e) => this.handleClick(e)}>
-            <input type="text" term={this.state.value} onChange ={this.handleChange} placeholder="Search"/><form> 
+            <input type="text" term={this.state.value} onChange ={this.handleChange} placeholder="Search"/></form> 
             <button onClick={this.handleClick}></button> 
 
             </div>
@@ -46,4 +50,5 @@ class Search extends Component{
     }
 }
 
-export default Search;
+
+export default SearchBar;

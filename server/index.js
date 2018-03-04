@@ -114,7 +114,7 @@ app.get('/api/searchAll', (req, res, next) => {
 })
 
 app.get('/logout', (req, res) =>{
-    req.session.destroy(() =>{
+    req.session.destroy(() => {
         res.redirect('http://localhost:3000/');
     });
 });
