@@ -12,10 +12,19 @@
     width: 500px;
     display: flex;
     margin: 0 auto;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
 }
 
 .search-button {
     display: flex;
-    
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    color: white;
+    background-color: black;
 
+}
+
+.search-button:hover {
+    color: #ffc740;
 }

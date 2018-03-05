@@ -19,6 +19,8 @@
     text-align: center;
     margin: 0 auto;
     line-height: 100px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
 }
 
 .name:hover{
