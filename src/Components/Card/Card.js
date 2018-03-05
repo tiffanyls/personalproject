@@ -9,8 +9,8 @@ class Card extends Component {
     render(){
         return (
             <div className = "card">
-                <img src = {this.props.images.image}/>
-            <div className ="container">
+                <img src = {this.props.images.image} className="image"/>
+            <div className ="card-container">
                 <p>{this.props.images.location}</p>
                 <p>{this.props.images.city}</p>
                 <p>{this.props.images.state}</p>
