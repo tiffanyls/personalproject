@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Search from './Search.css';
 
 class SearchBar extends Component{
     constructor(props){
@@ -40,11 +41,10 @@ class SearchBar extends Component{
                 </div>
         )}) 
         return (
-            <div>
+            <div className ="main">
             <form onSubmit= {(e) => this.handleClick(e)}>
-            <input type="text" term={this.state.value} onChange ={this.handleChange} placeholder="Search"/></form> 
-            <button onClick={this.handleClick}>Search</button> 
-
+            <input type="text" term={this.state.value} onChange ={this.handleChange} placeholder="Search" class="search"/></form> 
+            <button onClick={this.handleClick} className ="search-button">Search</button> 
             </div>
         )
     }

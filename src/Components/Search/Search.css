@@ -1,0 +1,21 @@
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+}
+
+
+.search {
+    width: 500px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.search-button {
+    display: flex;
+    
+
+}

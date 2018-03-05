@@ -4,11 +4,12 @@ import axios from 'axios';
 
 import Header from './../Header/Header';
 import Searchbar from "./../Search/SearchBar";
+import './Home.css';
 
 
 class Home extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state ={
         image: []
     };
@@ -16,16 +17,19 @@ class Home extends Component {
     }
     componentDidMount(){
         axios.get('/api/getImages').then(response => {
-            this.setState({image: response.data})
+            this.setState({image: response.data});
         })
     }
     
     render(){
-        return 
-        <div>
-        <Header /> <button onClick={() => window.location.href = "http://localhost:3001/login"}>Login/Sign Up</button>
+        return (
+        <div className="container">
+        <Header /> <button onClick={() => window.location.href = "http://localhost:3001/login"} className="login">Login/Sign Up</button>
+        <div className="searchbar">
         <Searchbar />
         </div>
-    }
+        
+        </div>
+        )}
 }
 export default withRouter(Home);
