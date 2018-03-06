@@ -1,0 +1,50 @@
+h3{
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 150px;
+}
+
+.loader{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    
+}
+
+.l {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    
+}
+.choose {
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+}
+
+.i {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    width: 250px;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    background-color: black;
+    color: white;
+    margin: 0 auto;
+}
+
+.submit:hover {
+    color: #ffc740;
+}

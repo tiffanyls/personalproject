@@ -1,7 +1,9 @@
 .card {
+    padding-left: 20px;
    
 }
 
 .image {
-    
+   height: auto;
+   width: 300px;
 }

@@ -43,7 +43,7 @@ class SearchBar extends Component{
         return (
             <div className ="main">
             <form onSubmit= {(e) => this.handleClick(e)}>
-            <input type="text" term={this.state.value} onChange ={this.handleChange} placeholder="Search" class="search"/></form> 
+            <input type="text" term={this.state.value} onChange ={this.handleChange} placeholder="Search" className="search"/></form> 
             <button onClick={this.handleClick} className ="search-button">Search</button> 
             </div>
         )
