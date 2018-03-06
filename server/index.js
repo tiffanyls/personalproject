@@ -126,6 +126,12 @@ app.get('/api/getImages', (req, res, next) => {
         res.status(500).json(err);
     })
 })
+app.delete('/api/deleteImage', (req, res, next) =>{ 
+    app.get('db'.deleteImage()
+    .then(req.destroy()=> {
+        
+    })
+}
 
 app.get('/logout', (req, res) =>{
     req.session.destroy(() => {
