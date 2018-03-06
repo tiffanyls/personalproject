@@ -104,8 +104,10 @@ app.get('/api/userImages/', (req, res, next) => {
 });
 
 app.get('/api/searchAll', (req, res, next) => {
+    console.log(req.query)
     app.get('db').searchAll([req.query.searchInfo])
     .then(response => {
+        console.log(response, "line 110")
         res.status(200).json(response);
     })
     .catch(err => {
@@ -115,6 +117,7 @@ app.get('/api/searchAll', (req, res, next) => {
 
 app.get('/api/getImages', (req, res, next) => {
     const {image} = req.body;
+    console.log(req.body)
     app.get('db').getImages([image])
     .then(response =>{
         res.status(200).json(response);

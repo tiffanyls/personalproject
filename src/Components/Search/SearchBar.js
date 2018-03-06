@@ -26,9 +26,9 @@ class SearchBar extends Component{
     render(){
         const results= this.state.results.map((curr, ind) => {
             return (
-                <div>
+                <div key={ind}>
             <div className="image-results">
-                <img src = {this.curr.images.image}/>
+                <img src = {curr.image}/>
                 <p>{curr.location}</p>
                 <p>{curr.city}</p>
                 <p>{curr.state}</p>
@@ -45,6 +45,7 @@ class SearchBar extends Component{
             <form onSubmit= {(e) => this.handleClick(e)}>
             <input type="text" term={this.state.value} onChange ={this.handleChange} placeholder="Search" className="search"/></form> 
             <button onClick={this.handleClick} className ="search-button">Search</button> 
+            {results}
             </div>
         )
     }

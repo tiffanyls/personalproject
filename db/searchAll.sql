@@ -1,1 +1,4 @@
-SELECT * FROM images OUTER JOIN images ON images.user_id = user_id ;
+SELECT * FROM users u JOIN images im ON u.user_id = im.user_id WHERE u.user_id=$1 OR im.image=$1 OR im.location = $1 OR 
+im.city = $1 OR im.state = $1 OR im.country = $1 OR im.notes = $1;
+
+-- SELECT * FROM users u JOIN images im on u.id = im.user_id WHERE u.username = $1 OR im.image_tag = $1
