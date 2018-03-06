@@ -26,7 +26,7 @@ class Home extends Component {
         return (
         <div className="container">
         <Header /> <button onClick={() => window.location.href = "http://localhost:3001/login"} className="login">Login/Sign Up</button>
-        <img src = {this.state.image}/>
+        <img src = {this.state.image} className="home-image"/>
         <div className="searchbar">
         <Searchbar />
         </div>

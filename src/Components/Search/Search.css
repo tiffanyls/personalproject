@@ -4,16 +4,21 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-top: 200px;
+    padding-bottom: 100px;
 }
 
 
 .search {
     width: 500px;
     display: flex;
-    margin: 0 auto;
+    margin: auto;
     font-family: 'Source Code Pro', monospace;
     font-weight: lighter;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
 }
 
 .search-button {
@@ -22,6 +27,10 @@
     font-weight: lighter;
     color: white;
     background-color: black;
+    position: absolute;
+    top: 75%;
+    left: 75%;
+    transform: translate(-50%, -50%)
 
 }
 
