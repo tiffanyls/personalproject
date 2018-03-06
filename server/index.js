@@ -118,7 +118,7 @@ app.get('/api/searchAll', (req, res, next) => {
 app.get('/api/getImages', (req, res, next) => {
     const {image} = req.body;
     console.log(req.body)
-    app.get('db').getImages([image])
+    app.get('db').getImages()
     .then(response =>{
         res.status(200).json(response);
     })
