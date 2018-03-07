@@ -7,31 +7,34 @@ import axios from 'axios';
 
 class ImageDisplay extends Component {
     constructor(props){
-    super(props);
-    this.state = {
-        images: []  
+        super(props);
+        this.state = {
+            images: []  
 
-    };
-}
-componentDidMount(){
-    axios.get('/api/userImages').then(response =>{
-        this.setState({images: response.data});
-    })
-}
+        };
+        this.deleteImage = this.deleteImage.bind(this);
+    }
 
-render(){
-    const userImages = this.state.images.map((curr, ind) => {
-    return (
-        <Card images={curr} key={ind}/>
-    )
-})
-    return (
-        <div> 
-            {userImages}
-        </div>
-    )
-}
-}
+    componentDidMount(){
+        axios.get('/api/userImages').then(response =>{
+            this.setState({images: response.data});
+        })
+    }
 
+    deleteImage(id){
+        console.log(id.target.value)
+        axios.delete(`/api/deleteImage/${id.target.value}`).then(res =>{
+            console.log(res)
+        })
+    }
+
+    render(){
+        return (
+            <div> 
+                <Card delete={this.deleteImage} images={this.state.images}/>
+            </div>
+        )
+    }
+}
 
 export default ImageDisplay;

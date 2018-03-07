@@ -117,21 +117,27 @@ app.get('/api/searchAll', (req, res, next) => {
 
 app.get('/api/getImages', (req, res, next) => {
     const {image} = req.body;
-    console.log(req.body)
+    // console.log(req.body)
     app.get('db').getImages()
     .then(response =>{
         res.status(200).json(response);
     })
-    .catch(err => {
+    .catch(err => {             
         res.status(500).json(err);
     })
 })
-// app.delete('/api/deleteImage', (req, res, next) =>{ 
-//     app.get('db'.deleteImage()
-//     .then(req.destroy()=> {
 
-//     })
-// }
+ app.delete('/api/deleteImage/:id', (req, res, next) =>{ 
+     console.log('hi', req.params.id)
+    app.get('db').deleteImage([req.params.id])
+   .then(response =>{
+       console.log(response)
+        res.status(200).json(response);
+})
+    .catch(err=> {
+    res.status(500).json(err);
+});
+ })
 
 app.get('/logout', (req, res) =>{
     req.session.destroy(() => {
@@ -141,4 +147,4 @@ app.get('/logout', (req, res) =>{
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
-});
+})
