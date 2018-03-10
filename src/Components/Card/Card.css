@@ -1,9 +1,31 @@
 .card {
     padding-left: 20px;
+    display: flex;
    
 }
 
 .image {
    height: auto;
-   width: 300px;
+   width: 500px;
+   display: flex;
+}
+
+.card-container {
+    border: black solid 1px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    width: 500px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    
+}
+
+.edit {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+}
+
+.delete {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
 }

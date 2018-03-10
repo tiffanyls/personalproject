@@ -70,7 +70,7 @@ class UserUploader extends Component {
               Country
                 <input type="text" onChange={(event) => this.handleChange("country", event)} placeholder="France" className="i" required/> </label>
             <label className="l">
-              Notes
+              Description
                 <input type="text" onChange={(event) => this.handleChange("notes", event)} placeholder="Took from 2nd Floor" className="i" required/></label>
                 <div>
             <button onClick={this.submitForm} className="submit">Submit</button> </div>

@@ -6,34 +6,43 @@ class Card extends Component {
     constructor(props){
         super(props);
         this.state = {
-            id: ''
-        }
+            id: '',
+            isEditing: false
+        };
+        this.toggleEdit = this.toggleEdit.bind(this);
+    }
+
+    toggleEdit(){
+        this.setState({isEditing: !this.state.isEditing})
     }
 
     render(){
-        console.log(this.props.images)
+        if (this.state.isEditing){
+            return (
+                <div></div>
+            )
+        }
+        // console.log(this.props.images)
         const {images} = this.props;
-    const userImages = images.map((curr, i) => {
+        const userImages = images.map((curr, i) => {
         return (
             <div className = "card">
                 <div className ="card-container">
                 <img src = {curr.image} className="image"/>
-                    <p>{curr.city}</p>
-                    <p>{curr.location}</p>
-                    <p>{curr.state}</p>
-                    <p>{curr.country}</p>
-                    <p>{curr.notes}</p>
-                    <p>{curr.image_id}</p>
-                </div>
-                <div>
-                    <button value={curr.image_id} onClick={this.props.delete} className="delete">Delete</button>
+                    <p>Location: {curr.location}</p>
+                    <p>City: {curr.city}</p>
+                    <p>State: {curr.state}</p>
+                    <p>County: {curr.country}</p>
+                    <p>Description: {curr.notes}</p>
+                    <button onClick={this.toggleEdit} className="edit" >Edit</button>
+                    <button value={curr.image_id} onClick={this.props.delete} className="delete">Delete</button>    
                 </div>
             </div>
         )
     })
 
     return (
-        <div>
+        <div style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
         {userImages}
         </div>
     )
