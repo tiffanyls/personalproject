@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Header from './../Header/Header';
 import UserUploader from './UserUploader/UserUploader';
-import ImageDisplay from '../ImageDisplay/ImageDisplay';
+// import ImageDisplay from '../ImageDisplay/ImageDisplay';
+import Card from './../Card/Card';
 
 class UserAccount extends Component {
     constructor(props) {
@@ -16,8 +17,7 @@ render() {
         <div>
         <Header />
         <UserUploader />
-        
-        <ImageDisplay />
+        <Card />
         </div>
     )
 }

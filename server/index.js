@@ -92,6 +92,18 @@ app.post('/api/imageAndMetadata', (req, res, next) => {
         });
 });
 
+app.put('/api/updateImage', (req, res, next) => {
+    console.log(req.body)
+    const {location, city, state, country, notes, image_id} = req.body.updatedInfo;
+    app.get('db').updateImage([location, city, state, country, notes, image_id, req.user.user_id])
+    .then(response => {
+        res.status(200).json(response);
+    })
+    .catch(err=>{
+        res.status(500).json(err);
+    })
+})
+
 app.get('/api/userImages/', (req, res, next) => {
     app.get('db').getImagesbyUser([req.user.user_id])
     .then(response => {

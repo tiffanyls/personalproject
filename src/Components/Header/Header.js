@@ -14,7 +14,7 @@ class Header extends Component{
     }
     componentDidMount() {
         axios.get('/api/checkUser').then(response => {
-            console.log(response)
+            // console.log(response)
            if (response.data){
                this.setState({user: true})
            } else {
