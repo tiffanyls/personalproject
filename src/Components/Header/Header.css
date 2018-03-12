@@ -25,6 +25,23 @@
 
 .name:hover{
     color: #ffc740;
+}
 
-
+button.login {
+    display: flex;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    color: white;
+    background-color: black;
+    height: 20px;
+    margin-top: 30px
+}
+button {
+    display: flex;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    color: white;
+    background-color: black;
+    height: 20px;
+    margin-top:30px;
 }

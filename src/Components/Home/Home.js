@@ -17,7 +17,7 @@ class Home extends Component {
     }
     componentDidMount(){
         axios.get('/api/getImages').then(response => {
-            console.log(response)
+        
             this.setState({image: response.data[0].image});
         })
     }
@@ -25,7 +25,7 @@ class Home extends Component {
     render(){
         return (
         <div className="container">
-        <Header /> <button onClick={() => window.location.href = "http://localhost:3001/login"} className="login">Login/Sign Up</button>
+        <Header /> 
         <img src = {this.state.image} className="home-image"/>
         <div className="searchbar">
         <Searchbar />

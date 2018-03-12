@@ -145,6 +145,10 @@ app.get('/logout', (req, res) =>{
     });
 });
 
+app.get('/api/checkUser', (req, res, next) => {
+    res.status(200).send(req.user)
+})
+
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
 })

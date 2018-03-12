@@ -16,7 +16,7 @@ render() {
         <div>
         <Header />
         <UserUploader />
-        <a href = "http://localhost:3001/logout"><button>Logout</button></a>
+        
         <ImageDisplay />
         </div>
     )
