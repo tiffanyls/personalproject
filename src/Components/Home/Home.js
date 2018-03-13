@@ -11,26 +11,28 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state ={
-        image: []
+        image: [],
+        showImage: true
     };
-
+    this.removeImage = this.removeImage.bind(this);
     }
     componentDidMount(){
         axios.get('/api/getImages').then(response => {
-        
             this.setState({image: response.data[0].image});
         })
+    }
+    removeImage(){
+        this.setState({showImage: false})
     }
     
     render(){
         return (
         <div className="container">
         <Header /> 
-        <img src = {this.state.image} className="home-image"/>
+       {this.state.showImage && <img src = {this.state.image} className="home-image"/>}
         <div className="searchbar">
-        <Searchbar />
+        <Searchbar removeImage={this.removeImage}/>
         </div>
-        
         </div>
         )}
 }
