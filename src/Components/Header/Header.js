@@ -42,7 +42,7 @@ class Header extends Component{
         {!this.state.user ? <button onClick={() => window.location.href = "http://localhost:3001/login"} className="login">Login/Sign Up</button>
        : <a href = "http://localhost:3001/logout"><button>Logout</button></a>}
        <button onClick = {this.toggleModal} className='modal'> Upload New</button>
-       {this.state.toggleModal && <UserUploader />}
+       {this.state.toggleModal &&  <UserUploader />}
     </div>
      </header>
         </div>

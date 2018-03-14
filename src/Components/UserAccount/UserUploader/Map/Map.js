@@ -10,27 +10,46 @@ class Map extends Component {
           place_formatted: '',
           place_id: '',
           place_location: '',
+          
         };
       }
     
       componentDidMount() {
+        let markers = []
         let map = new window.google.maps.Map(document.getElementById('map'), {
           center: {lat: 51.509865, lng: -0.118092},
           zoom: 10,
           mapTypeId: 'roadmap',
         });
 
-        function placeMarkerAndPanTo(latLng, map) {
-            var marker = new window.google.maps.Marker({
-                   position: latLng,
-                       map: map
+       const placeMarkerAndPanTo = (latLng, map)=>{
+           var marker = new window.google.maps.Marker({
+                position: latLng,
+                map: map
        });
+       markers.push(marker)
        map.panTo(latLng);
    }
         map.addListener('click', (e) => {
+          if (markers.length < 1){
         placeMarkerAndPanTo(e.latLng, map);
+          }
+          else {
+            deleteMarkers()
+          }
      });
-    
+        const setMapOnAll = (map) =>  {
+          for (let i = 0; i < markers.length; i++) {
+           markers[i].setMap(map);
+      }
+    }
+        const clearMarkers = () =>{
+           setMapOnAll(null);
+    }
+          const  deleteMarkers = () => {
+            clearMarkers();
+              markers = []
+    }
         map.addListener('zoom_changed', () => {
           this.setState({
             zoom: map.getZoom(),
@@ -42,11 +61,14 @@ class Map extends Component {
             maptype: map.getMapTypeId(),
           });
         });
+
+        // map.addListener('dblclick', (e) =>{
+        // });
     
-        let marker = new window.google.maps.Marker({
-          map: map,
-          position: {lat: -33.8688, lng: 151.2195},
-        });
+        // let marker = new window.google.maps.Marker({
+        //   map: map,
+        //   position: {lat: -33.8688, lng: 151.2195},
+        // });
     
         let inputNode = document.getElementById('pac-input');
         map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(inputNode);
@@ -66,10 +88,10 @@ class Map extends Component {
           map.fitBounds(place.geometry.viewport);
           map.setCenter(location);
     
-          marker.setPlace({
-            placeId: place.place_id,
-            location: location,
-          });
+          // marker.setPlace({
+          //   placeId: place.place_id,
+          //   location: location,
+          // });
         });
       }
     
@@ -83,6 +105,7 @@ class Map extends Component {
           </div>
         );
       }
+  
     };
 
 export default Map;
