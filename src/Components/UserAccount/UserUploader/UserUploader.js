@@ -53,7 +53,6 @@ class UserUploader extends Component {
     render (){
         return (
             <div>
-                <h3> Upload New </h3>
             <div className="l">
                 <div className="loader">
                 <input type="file" onChange={(event) => this.uploadImage(event.target.files)} className ="choose" required/>

@@ -4,13 +4,20 @@ import axios from 'axios';
 
 import './Header.css';
 import VP from './VP.png';
+import UserUploader from './../UserAccount/UserUploader/UserUploader';
 
 class Header extends Component{
     constructor(props){
         super(props);
         this.state = {
-            user: false
+            user: false,
+            toggleModal: false
         };
+        this.toggleModal = this.toggleModal.bind(this);
+    }
+
+    toggleModal(e){
+        this.setState({toggleModal: !this.state.toggleModal})
     }
     componentDidMount() {
         axios.get('/api/checkUser').then(response => {
@@ -21,7 +28,6 @@ class Header extends Component{
                this.setState({user: false})
            }
         })
-       
         
     }
     
@@ -35,6 +41,8 @@ class Header extends Component{
     <div>
         {!this.state.user ? <button onClick={() => window.location.href = "http://localhost:3001/login"} className="login">Login/Sign Up</button>
        : <a href = "http://localhost:3001/logout"><button>Logout</button></a>}
+       <button onClick = {this.toggleModal} className='modal'> Upload New</button>
+       {this.state.toggleModal && <UserUploader />}
     </div>
      </header>
         </div>

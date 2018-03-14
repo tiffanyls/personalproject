@@ -20,6 +20,9 @@ massive(process.env.CONNECTION_STRING).then (db=> {
 app.use(json());
 app.use(cors());
 
+//used for serving production files
+// app.use(express.static(`${__dirname}/../build/`));
+
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -140,7 +143,7 @@ app.get('/api/getImages', (req, res, next) => {
 })
 
  app.delete('/api/deleteImage/:id', (req, res, next) =>{ 
-     console.log('hi', req.params.id)
+    //  console.log('hi', req.params.id)
     app.get('db').deleteImage([req.params.id])
    .then(response =>{
        console.log(response)
@@ -160,6 +163,13 @@ app.get('/logout', (req, res) =>{
 app.get('/api/checkUser', (req, res, next) => {
     res.status(200).send(req.user)
 })
+
+
+// Production only 
+
+// app.get("*", (req, res) => {
+//       res.sendFile(path.join(__dirname, "../build/index.html"));
+//     });
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);

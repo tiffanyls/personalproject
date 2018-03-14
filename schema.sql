@@ -2,6 +2,10 @@ CREATE TABLE users (
     user_id serial primary key,
     id varchar(50),
     display_name varchar(255),
+    username varchar(15),
+    name varchar(100),
+    profile_pic text,
+    email text
 )
 
 CREATE TABLE images (

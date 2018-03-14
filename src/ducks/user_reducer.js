@@ -1,16 +1,16 @@
 import axios from 'axios';
 
 //const
-const GET_USERS = "GET_USERS";
+const GET_USER = "GET_USER";
 
 
 //action creators
 
-export function getUsers(){
+export function getUser(){
     return {
-        type: GET_USERS,
+        type: GET_USER,
         payload: axios
-        .get("/api/test")
+        .get("/api/me")
         .then(response => {
           return response.data;
         })
@@ -19,7 +19,7 @@ export function getUsers(){
 }
 
 const initialState = {
-    users: [],
+    user: [],
     isLoading: false,
     didErr: false,
     errMessage: null
@@ -27,16 +27,16 @@ const initialState = {
 
 export default function user_reducer(state = initialState, action){
     switch (action.type) {
-        case `${GET_USERS}_PENDING`:
+        case `${GET_USER}_PENDING`:
             return Object.assign({}, state, {isLoading: true});
 
-        case `${GET_USERS}_FULFILLED`:
+        case `${GET_USER}_FULFILLED`:
             return Object.assign({}, state, {
                 isLoading: false,
                 user: action.payload
             });
         
-        case `${GET_USERS}_REJECTED`:
+        case `${GET_USER}_REJECTED`:
             return Object.assign({}, state, {
                 isLoading: false,
                 didErr: true

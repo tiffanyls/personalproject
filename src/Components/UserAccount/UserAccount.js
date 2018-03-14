@@ -6,14 +6,16 @@ import Card from './../Card/Card';
 class UserAccount extends Component {
     constructor(props) {
     super(props) 
+    
     }
 
+   
+    
 render() {
     console.log(this.props)
     return (
         <div>
         <Header />
-        <UserUploader />
         <Card />
         </div>
     )
@@ -21,3 +23,4 @@ render() {
 }
 
 export default UserAccount;
+
