@@ -27,7 +27,7 @@
     color: white;
     background-color: black;
     position: absolute;
-    top: 75%;
+    top: 70.5%;
     left: 75%;
     transform: translate(-50%, -50%)
 
@@ -59,8 +59,16 @@
 .other {
     display: flex;
     position: absolute;
-    margin-left: 300px;
-    margin-right: 200px;
+    margin-left: 100px;
+    margin-right: 100px;
     width: 400px;
-    
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;  
+}
+
+.other-button {
+    display: flex;
+    position: absolute;
+    top: 11%;
+    left: 70%;
 }

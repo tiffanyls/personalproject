@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import Header from './../Header/Header';
 import UserUploader from './UserUploader/UserUploader';
-// import ImageDisplay from '../ImageDisplay/ImageDisplay';
 import Card from './../Card/Card';
 
 class UserAccount extends Component {
     constructor(props) {
-    super(props)
-     
+    super(props) 
     }
-
 
 render() {
     console.log(this.props)
@@ -22,9 +19,5 @@ render() {
     )
 }
 }
-    
-
-
-
 
 export default UserAccount;

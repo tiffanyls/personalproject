@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import firebase from '../../../fire';
 import axios from 'axios';
 import './UserUploader.css';
+import Map from './Map/Map';
 
 
 class UserUploader extends Component {
@@ -73,7 +74,7 @@ class UserUploader extends Component {
               Description
                 <input type="text" onChange={(event) => this.handleChange("notes", event)} placeholder="Took from 2nd Floor" className="i" required/></label>
                 <div>
-            <button onClick={this.submitForm} className="submit">Submit</button> </div>
+            <button onClick={this.submitForm} className="submit">Submit</button> </div> <Map /> 
                 </form>
                </div> 
             </div>

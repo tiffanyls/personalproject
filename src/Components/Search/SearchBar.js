@@ -63,4 +63,3 @@ class SearchBar extends Component{
 
 export default SearchBar;
 
-{/* <div className={"btn-group pull-right " + (this.props.showBulkActions ? 'show' : 'hidden')}> */}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import axios from 'axios';
 import { connect } from 'react-redux';
 import routes from './routes';
 import {withRouter} from 'react-router-dom';
