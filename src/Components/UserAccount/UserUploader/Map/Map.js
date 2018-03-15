@@ -33,6 +33,7 @@ class Map extends Component {
         map.addListener('click', (e) => {
           if (markers.length < 1){
         placeMarkerAndPanTo(e.latLng, map);
+        this.props.userLocation(e.latLng.lat(),  e.latLng.lng())
           }
           else {
             deleteMarkers()
@@ -61,14 +62,6 @@ class Map extends Component {
             maptype: map.getMapTypeId(),
           });
         });
-
-        // map.addListener('dblclick', (e) =>{
-        // });
-    
-        // let marker = new window.google.maps.Marker({
-        //   map: map,
-        //   position: {lat: -33.8688, lng: 151.2195},
-        // });
     
         let inputNode = document.getElementById('pac-input');
         map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(inputNode);
@@ -83,15 +76,10 @@ class Map extends Component {
             place_id: place.place_id,
             place_location: location.toString(),
           });
-    
           
           map.fitBounds(place.geometry.viewport);
           map.setCenter(location);
     
-          // marker.setPlace({
-          //   placeId: place.place_id,
-          //   location: location,
-          // });
         });
       }
     

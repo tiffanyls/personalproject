@@ -15,11 +15,14 @@ class UserUploader extends Component {
             state: "",
             country: "",
             notes: "",
+            lat: "",
+            lng: ""
         };
 
         this.uploadImage = this.uploadImage.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.submitForm = this.submitForm.bind(this);
+        this.userLocation = this.userLocation.bind(this);
     }
 
     handleChange(stateKey, event) {
@@ -29,9 +32,14 @@ class UserUploader extends Component {
 
       }
 
+      userLocation(lat, lng){
+          console.log(lat, lng, this.state.image)
+          this.setState({lat, lng })
+      }
+
     submitForm(e){
         e.preventDefault()
-        axios.post('/api/imageAndMetadata', {image: this.state.image, location: this.state.location, city: this.state.city, state: this.state.state, country: this.state.country, notes: this.state.notes })
+        axios.post('/api/imageAndMetadata', {image: this.state.image, location: this.state.location, city: this.state.city, state: this.state.state, country: this.state.country, notes: this.state.notes, lat: this.state.lat, lng: this.state.lng })
     }
     uploadImage(file){
         const storageRef = firebase.storage().ref();
@@ -43,8 +51,9 @@ class UserUploader extends Component {
                 (snapshot) => {
                     console.log(snapshot);
                 },
-                (error) => {},
+                (error) => {console.log(error)},
                 (success) => {
+                    console.log(uploadTask.snapshot)
                     this.setState({image:uploadTask.snapshot.downloadURL});
                 },
             );
@@ -73,7 +82,7 @@ class UserUploader extends Component {
               Description
                 <input type="text" onChange={(event) => this.handleChange("notes", event)} placeholder="Took from 2nd Floor" className="i" required/></label>
                 <div>
-            <button onClick={this.submitForm} className="submit">Submit</button> </div> <Map /> 
+            <button onClick={this.submitForm} className="submit">Submit</button> </div> <Map userLocation ={this.userLocation}/> 
                 </form>
                </div> 
             </div>

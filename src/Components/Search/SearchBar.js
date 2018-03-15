@@ -50,8 +50,8 @@ class SearchBar extends Component{
         return (
             <div className ="main">
             <form onSubmit= {(e) => this.handleClick(e)}>
-            <input type="text" term={this.state.value} onChange ={this.handleChange} placeholder="Search" className={this.state.searched ? "search" : "other"}/></form> 
-            <button onClick={this.handleClick} className={this.state.searched ? "search-button": "other-button"}>Search</button> 
+            <input type="text" term={this.state.value} onChange ={this.handleChange} placeholder="Search" className={this.state.searched ? "search" : "other"}/>
+            <button onClick={this.handleClick} className={this.state.searched ? "search-button": "other-button"}>Search</button> </form> 
             <div style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap', paddingTop: '30px'}}>
             {results}
             </div>

@@ -85,8 +85,8 @@ app.get('/me', (req, res, next) =>{
 })
 
 app.post('/api/imageAndMetadata', (req, res, next) => {
-    const {image, location, city, state, country, notes, user_id} = req.body;
-    app.get('db').createImage([image, location, city, state, country, notes, req.user.user_id])
+    const {image, location, city, state, country, notes, lat, lng } = req.body;
+    app.get('db').createImage([image, location, city, state, country, notes, lat, lng, req.user.user_id])
     .then(response =>{
         res.status(200).json(response);
     })
@@ -96,7 +96,6 @@ app.post('/api/imageAndMetadata', (req, res, next) => {
 });
 
 app.put('/api/updateImage', (req, res, next) => {
-    console.log(req.body)
     const {location, city, state, country, notes, image_id} = req.body.updatedInfo;
     app.get('db').updateImage([location, city, state, country, notes, image_id, req.user.user_id])
     .then(response => {

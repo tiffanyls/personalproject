@@ -1,1 +1,1 @@
-INSERT INTO images (image, location, city, state, country, notes, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;
+INSERT INTO images (image, location, city, state, country, notes, lat, lng, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;
