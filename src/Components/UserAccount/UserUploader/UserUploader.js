@@ -64,7 +64,7 @@ class UserUploader extends Component {
             <div>
             <div className="l">
                 <div className="loader">
-                <input type="file" onChange={(event) => this.uploadImage(event.target.files)} className ="choose" required/>
+                <input type="file" accept = "image/*" onChange={(event) => this.uploadImage(event.target.files)} className ="choose" required/>
                 <form onSubmit={this.submitForm}>           
             <label className="l">
               Location
