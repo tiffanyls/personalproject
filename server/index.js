@@ -21,7 +21,7 @@ app.use(json());
 app.use(cors());
 
 //used for serving production files
-app.use(express.static(`${__dirname}/../build/`));
+//app.use(express.static(`${__dirname}/../build/`));
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -72,7 +72,7 @@ passport.deserializeUser((user, done) =>{
 
 
 app.get('/login', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3001/user',
+    successRedirect: 'http://localhost:3000/user',
     failureRedirect: '/login',
     failureFlash: true
 }));
@@ -155,7 +155,7 @@ app.get('/api/getImages', (req, res, next) => {
 
 app.get('/logout', (req, res) =>{
     req.session.destroy(() => {
-        res.redirect('http://localhost:3001/');
+        res.redirect('http://localhost:3000/');
     });
 });
 
