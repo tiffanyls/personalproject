@@ -18,6 +18,9 @@
     line-height: 58px;
     margin: 0 auto;
 }
+/* .name:hover{
+    color: #ffc740;
+} */
 
 button.login {
     display: flex;
@@ -27,9 +30,10 @@ button.login {
     font-size: 8px;
     color: white;
     background-color: black;
-    height: 28px;
-    width: 70px;
-    margin-top: 13px;
+    height: 20px;
+    width: 79px;
+    margin-top: 18px;
+    margin-right: 0;
 }
 /* .header {
     display: flex;
