@@ -3,6 +3,7 @@ import firebase from '../../../fire';
 import axios from 'axios';
 import './UserUploader.css';
 import Map from './Map/Map';
+import {withRouter} from 'react-router-dom';
 
 
 class UserUploader extends Component {
@@ -39,7 +40,10 @@ class UserUploader extends Component {
 
     submitForm(e){
         e.preventDefault()
-        axios.post('/api/imageAndMetadata', {image: this.state.image, location: this.state.location, city: this.state.city, state: this.state.state, country: this.state.country, notes: this.state.notes, lat: this.state.lat, lng: this.state.lng })
+        axios.post('/api/imageAndMetadata', {image: this.state.image, location: this.state.location, city: this.state.city, state: this.state.state, country: this.state.country, notes: this.state.notes, lat: this.state.lat, lng: this.state.lng }).then(response =>{
+            this.props.refreshPage();
+            this.props.toggleModal();
+        })
     }
     uploadImage(file){
         const storageRef = firebase.storage().ref();
@@ -91,4 +95,4 @@ class UserUploader extends Component {
     }
 }
 
-export default UserUploader;
+export default withRouter(UserUploader);

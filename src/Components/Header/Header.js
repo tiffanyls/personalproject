@@ -59,7 +59,7 @@ class Header extends Component {
                 Upload New
               </button>
             )}
-            {this.state.toggleModal && <UserUploader />}
+            {this.state.toggleModal && <UserUploader refreshPage = {this.props.refreshPage} toggleModal = {this.toggleModal} />}
           </div>
         </header>
       </div>

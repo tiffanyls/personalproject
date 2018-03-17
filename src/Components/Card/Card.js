@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './Card.css';
+import Map from './../UserAccount/UserUploader/Map/Map';
 
 class Card extends Component {
     constructor(props){
@@ -9,19 +10,16 @@ class Card extends Component {
             id: '',
             isEditing: false,
             num: "",
-            images:[],
+            images: [],
             newObject: {}
         };
         this.toggleEdit = this.toggleEdit.bind(this);
         this.deleteImage = this.deleteImage.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
-
-    componentDidMount(){
-        axios.get('/api/userImages').then(response =>{
-            this.setState({images: response.data});
-        })
-    }
+componentWillReceiveProps(nextProps){
+    this.setState({images: nextProps.newImages})
+}
     
     handleChange(stateKey, event){
         let newObject = Object.assign({}, this.state.images[this.state.currentItem])
@@ -36,22 +34,20 @@ class Card extends Component {
     }
 
     saveChange(e){
+        console.log(e, this.state.newObject)
         axios.put('/api/updateImage', {updatedInfo: this.state.newObject})
         this.setState({isEditing: false})
     }
 
-
     deleteImage(id){
-        console.log(id.target.value)
         axios.delete(`/api/deleteImage/${id.target.value}`).then(res =>{
-            // console.log(res)
+            this.props.refreshPage();
         })
     }
 
-
     render(){
         
-        // console.log(this.props.images)
+        console.log(this.props.images)
         const {images} = this.state;
         const userImages = images.map((curr, i) => {
             console.log(curr)
@@ -69,6 +65,8 @@ class Card extends Component {
                     <p>State: {curr.state}</p>
                     <p>County: {curr.country}</p>
                     <p>Description: {curr.notes}</p>
+                    <p>Latitude: {curr.lat}</p>
+                    <p>Longitute: {curr.lng}</p>
                     <button onClick={()=>this.toggleEdit(curr.image_id, i)} className="edit" >Edit</button></div>}
                     <button value={curr.image_id} onClick={this.deleteImage} className="delete">Delete</button>    
                 </div>

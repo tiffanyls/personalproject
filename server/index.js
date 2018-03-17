@@ -96,12 +96,14 @@ app.post('/api/imageAndMetadata', (req, res, next) => {
 });
 
 app.put('/api/updateImage', (req, res, next) => {
-    const {location, city, state, country, notes, image_id} = req.body.updatedInfo;
-    app.get('db').updateImage([location, city, state, country, notes, image_id, req.user.user_id])
+    const {location, city, state, country, notes, image_id, lat, lng} = req.body.updatedInfo;
+    console.log(req.body.updatedInfo)
+    app.get('db').updateImage([location, city, state, country, notes, lat, lng ,image_id])
     .then(response => {
         res.status(200).json(response);
     })
     .catch(err=>{
+        console.log(err)
         res.status(500).json(err);
     })
 })

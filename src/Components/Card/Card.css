@@ -29,3 +29,8 @@
     font-family: 'Source Code Pro', monospace;
     font-weight: lighter;
 }
+
+.result-map {
+    width: 25%;
+    height: 25%;
+}
