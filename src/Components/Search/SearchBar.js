@@ -43,6 +43,8 @@ class SearchBar extends Component{
                 <p>{curr.state}</p>
                 <p>{curr.country}</p>
                 <p>{curr.notes}</p>
+                <p>Latitude{curr.lat}</p>
+                <p>Longitude{curr.lng}</p>
             </div>
                 </div>
                 </div>

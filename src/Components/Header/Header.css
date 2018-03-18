@@ -12,6 +12,7 @@
 .name {
     font-family: 'Source Code Pro', monospace;
     font-weight: lighter;
+    font-size: 15px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -35,7 +36,9 @@ button.login {
     margin-top: 18px;
     margin-right: 0;
 }
-/* .header {
+
+@media(min-width: 500px){
+.header {
     display: flex;
     flex-direction: row;
 }
@@ -85,4 +88,5 @@ button.login:hover {
 }
 button:hover {
     color: #ffc740;
-} */
+}
+}

@@ -1,9 +1,42 @@
-html, body {
+/* html, body {
     height: 100%;
     width: 100%;
+} */
+
+.home-image{
+    width: 100%;
+    height: 50%;
+    margin-top: 5%;
 }
 
-.home-image {
-    height: 25%;
+@media(min-width: 500px){
+    .home-image {
+    height: 20%;
     width: 100%;
+    margin-top: 3%;
+}}
+
+@media(min-width: 800px){
+    .home-image{
+        height: 500px;
+        width: 100%;
+        margin-top: 0;
+        padding-bottom: 10%
+    }}
+    
+@media(min-width: 1000px){
+    .home-image{
+        height: 700px;
+        width: 100%;
+        margin-top: 0;
+        padding-bottom: 0;
+    }
 }
+/* @media(mind-width: 1400px){
+    .home-image{
+        height: auto;
+        width: 100%;
+        padding-bottom: 0;
+        
+    }
+} */
