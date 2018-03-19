@@ -46,6 +46,26 @@ button {
     width: 50px;
     padding-top: 2px;
 }
+
+button.link{
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    font-size: 8px;
+    color: white;
+    background-color: black;
+    height: 23px;
+    width: 50px;
+    margin-right: 0;
+    
+}
+
+a{
+    color: white;
+    text-decoration-line: none;
+    
+}
 button.login:hover {
     color: #ffc740
 }

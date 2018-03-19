@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div>
         {routes}
-          <Footer />
+        
       </div>
     );
   }

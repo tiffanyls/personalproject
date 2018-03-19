@@ -4,6 +4,7 @@ import axios from 'axios';
 import './UserUploader.css';
 import Map from './Map/Map';
 import {withRouter} from 'react-router-dom';
+import Header from '../../Header/Header';
 
 
 class UserUploader extends Component {
@@ -66,6 +67,7 @@ class UserUploader extends Component {
     render (){
         return (
             <div>
+                <Header />
             <div className="l">
                 <div className="loader">
                 <input type="file" accept = "image/*" onChange={(event) => this.uploadImage(event.target.files)} className ="choose" required/>

@@ -13,12 +13,12 @@ class Header extends Component {
       user: false,
       toggleModal: false
     };
-    this.toggleModal = this.toggleModal.bind(this);
+    // this.toggleModal = this.toggleModal.bind(this);
   }
 
-  toggleModal(e) {
-    this.setState({ toggleModal: !this.state.toggleModal });
-  }
+  // toggleModal(e) {
+  //   this.setState({ toggleModal: !this.state.toggleModal });
+  // }
   componentDidMount() {
     axios.get("/api/checkUser").then(response => {
       // console.log(response)
@@ -54,12 +54,11 @@ class Header extends Component {
               </a>
             )}
             {this.state.user && (
-              <button onClick={this.toggleModal} className="modal">
-                {" "}
+              <button className='link'><Link to={'/imageuploader'} >
                 Upload New
-              </button>
+              </Link></button>
             )}
-            {this.state.toggleModal && <UserUploader refreshPage = {this.props.refreshPage} toggleModal = {this.toggleModal} />}
+            
           </div>
         </header>
       </div>

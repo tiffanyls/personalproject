@@ -12,11 +12,7 @@ const Footer = () => {
        <li> Contact Us </li>
        <li> Advertise </li>
    </div>
-    <div className = 'social'>
-       <img src = {fb} className='fb' alt='Facebook'/>
-       <img src = {inst} className='inst' alt='Instagram'/>
-       <img src = {twitter} className='twitter' alt='Twitter'/>
-    </div>
+    
     </div>
     )}
 

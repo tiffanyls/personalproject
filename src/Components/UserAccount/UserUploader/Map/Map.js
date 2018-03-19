@@ -20,6 +20,8 @@ class Map extends Component {
           center: {lat: 51.509865, lng: -0.118092},
           zoom: 10,
           mapTypeId: 'roadmap',
+          mapTypeControl: true,
+          mapTypeControlOptions: {style: window.google.maps.MapTypeControlStyle.DROPDOWN_MENU}
         });
 
        const placeMarkerAndPanTo = (latLng, map)=>{

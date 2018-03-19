@@ -1,9 +1,27 @@
-h3{
+input.choose{
+    display: flex;
+    justify-content: center;
     font-family: 'Source Code Pro', monospace;
     font-weight: lighter;
+    margin-left: 125vw;
+    
+}
+input {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+}
+
+.l {
     display: flex;
     justify-content: flex-end;
-    padding-right: 150px;
+    padding-right: 20px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+}
+
+.i {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
 }
 
 .loader{
@@ -14,27 +32,6 @@ h3{
     
 }
 
-.l {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 20px;
-    font-family: 'Source Code Pro', monospace;
-    font-weight: lighter;
-    
-}
-.choose {
-    display: flex;
-    justify-content: flex-end;
-    font-family: 'Source Code Pro', monospace;
-    font-weight: lighter;
-}
-
-.i {
-    font-family: 'Source Code Pro', monospace;
-    font-weight: lighter;
-    width: 250px;
-}
-
 .submit {
     display: flex;
     justify-content: center;
@@ -42,9 +39,84 @@ h3{
     font-weight: lighter;
     background-color: black;
     color: white;
-    margin: 0 auto;
+    margin-left: 145vw;
+    margin-top: 10px;
 }
 
 .submit:hover {
     color: #ffc740;
+} 
+
+@media(min-width: 500px){
+    input.choose{
+        margin-left: 100vw;
+    }
+
+    .l{
+        padding-right: 12vw;
+    }
+
+    .submit{
+        margin-left: 100vw;
+    }
+}
+
+@media(min-width: 600px){
+    input.choose{
+        margin-left: 60vw;
+    }
+    button.submit{
+        margin-left: 60vw;
+    }
+    .choose{
+        position: relative;
+        left: -50px;
+    }
+}
+
+@media(min-width:700px){
+    .l{
+       padding-left: 50px;
+       padding-right: 110px;
+    }
+    .choose{
+        left: -40px;
+    }
+    
+}
+@media(min-width:800px){
+    .l{
+       padding-left: 40px;
+       padding-right: 140px;
+    }
+    input.choose{
+        margin-left: 70vw;
+    }
+
+    .choose{
+        margin-left: -120px;
+    }
+    
+
+@media(min-width: 1000px){
+    .choose{
+        left: -200px;
+    }
+    .l{
+        padding-left: 30px;
+        padding-right: 180px;
+    }
+}}
+
+@media(min-width: 1400px){
+    .choose{
+        left: -400px;
+    }
+    .l{
+        padding-right: 440px;
+    }
+
+    input.choose{
+        margin-left: 77vw;
+    }
 }

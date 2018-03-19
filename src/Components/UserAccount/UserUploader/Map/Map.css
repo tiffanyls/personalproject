@@ -1,16 +1,14 @@
 #map {
-    height: 500px;
-    width: 500px;
+    height: 300px;
+    width: 300px;
     margin-top: 20px;
+    position: absolute;
+    left: 105vw;
   }
   
   #state {
     width: 200px;
     float: left;
-  }
-  
-  #map {
-    margin-left: 200px;
   }
   
   html, body {
@@ -20,9 +18,9 @@
   }
   
   #description {
-    font-family: Roboto;
+    font-family: 'Source Code Pro', monospace;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: lighter;
   }
   
   #infowindow-content .title {
@@ -34,7 +32,9 @@
   }
   
   #map #infowindow-content {
-    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .pac-card {
@@ -59,7 +59,7 @@
   }
   
   .pac-controls label {
-    font-family: Roboto;
+    font-family: 'Source Code Pro', monospace;
     font-size: 13px;
     font-weight: 300;
   }
@@ -72,7 +72,7 @@
     margin-left: 12px;
     padding: 0 11px 0 13px;
     text-overflow: ellipsis;
-    width: 300px;
+    width: 120px;
   }
   
   #pac-input:focus {
@@ -87,4 +87,56 @@
     padding: 6px 12px;
   }
 
-  
+  @media(min-width: 500px){
+    #map{
+    height: 500px;
+    width: 430px;
+    margin-top: 20px;
+    position: absolute;
+    left: 8vw;
+    }
+    #pac-input{
+      width: 200px;
+    }
+  }
+
+  @media(min-width: 600px){
+    #map{
+      width: 500px;
+      left: 10vw;
+    }}
+
+   @media(min-width: 700px){
+      #map{
+        width: 600px;
+        height: 600px;
+        left: 10vw;
+    }
+      #pac-input{
+        width: 300px;
+      }
+    }
+
+    @media(min-width: 800px){
+      #map{
+        width: 700px;
+        height: 700px;
+        left: 8vw;
+      }
+    }
+
+    @media(min-width:1000px){
+      #map{
+        width: 900px;
+        height: 900px;
+        left: 6vw;
+      }
+    }
+
+    @media(min-width: 1400px){
+      #map{
+        width: 1400px;
+        height: 800px;
+        left: 15vw;
+      }
+    }
