@@ -21,7 +21,7 @@ app.use(json());
 app.use(cors());
 
 //used for serving production files
-//app.use(express.static(`${__dirname}/../build/`));
+app.use(express.static(`${__dirname}/../build/`));
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
