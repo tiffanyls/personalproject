@@ -42,8 +42,8 @@ class UserUploader extends Component {
     submitForm(e){
         e.preventDefault()
         axios.post('/api/imageAndMetadata', {image: this.state.image, location: this.state.location, city: this.state.city, state: this.state.state, country: this.state.country, notes: this.state.notes, lat: this.state.lat, lng: this.state.lng }).then(response =>{
-            this.props.refreshPage();
-            this.props.toggleModal();
+            // this.props.refreshPage();
+            // this.props.toggleModal();
         })
     }
     uploadImage(file){

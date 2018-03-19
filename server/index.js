@@ -8,7 +8,7 @@ const massive = require ('massive');
 const { domain, clientID, clientSecret } = require(`${__dirname}/../config`);
 const Auth0Strategy = require("passport-auth0");
 
-const port = 3001;
+const port = 80;
 
 const app = express();
 
@@ -72,7 +72,7 @@ passport.deserializeUser((user, done) =>{
 
 
 app.get('/login', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/user',
+    successRedirect: '/user',
     failureRedirect: '/login',
     failureFlash: true
 }));
@@ -157,7 +157,7 @@ app.get('/api/getImages', (req, res, next) => {
 
 app.get('/logout', (req, res) =>{
     req.session.destroy(() => {
-        res.redirect('http://localhost:3000/');
+        res.redirect('/');
     });
 });
 
