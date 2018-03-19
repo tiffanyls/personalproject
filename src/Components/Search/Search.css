@@ -141,10 +141,10 @@ input.search {
 
 @media(min-width:1600px) {
     input.search{
-        bottom: 91vh;
+        bottom: 95vh;
     }
 
     .search-button{
-        bottom: 91vh;
+        bottom: 95vh;
     }
 }
