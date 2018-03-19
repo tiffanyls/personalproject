@@ -1,3 +1,4 @@
+
 .card {
     padding-left: 20px;
     display: flex;
@@ -15,6 +16,7 @@
     box-sizing: border-box;
     overflow-wrap: break-word;
     width: 500px;
+    height: 700px;
     font-family: 'Source Code Pro', monospace;
     font-weight: lighter;
     
@@ -23,11 +25,16 @@
 .edit {
     font-family: 'Source Code Pro', monospace;
     font-weight: lighter;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .delete {
     font-family: 'Source Code Pro', monospace;
     font-weight: lighter;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .result-map {
