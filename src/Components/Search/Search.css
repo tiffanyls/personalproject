@@ -31,6 +31,50 @@ input.search {
     color: #ffc740;
 }
 
+.other{
+    display: flex;
+    position: absolute;
+    margin-left: 100px;
+    margin-right: 100px;
+    width: 40%;
+    height: 10px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter; 
+    border: 1px solid #ccc;
+    left: -4vw;
+}
+
+.other-button {
+    display: flex;
+    position: absolute;
+    left: 68vw;
+    height: 15px;
+}
+
+.results-card {
+    display: flex;
+}
+
+.image-results{
+    border: black solid 1px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    width: 300px;
+    height: 500px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    margin-left: 0;
+}
+ 
+.image-return{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 300px;
+  
+} 
+
 @media(min-width: 500px){
     input.search{
         bottom: 87vh;
@@ -40,6 +84,10 @@ input.search {
         height: 15px;
         bottom: 87vh;
         left: 68vw;
+    }
+    .other{
+        bottom: 85vh;
+        left: 7vw;
     }
 }
 @media(min-width: 800px){
@@ -52,7 +100,24 @@ input.search {
         height: 20px;
         bottom: 88vh;
     }
+    .other{
+        left: 14vw;
+    }
+    .other-button{
+        bottom: 85vh;
+    }
 }
+
+@media(min-width: 1000px){
+    .other{
+        left: 20vw;
+    }
+    .other-button{
+        left: 70vw;
+        bottom: 85vh;
+    }
+}
+
 
 @media(min-width: 1400px){
     input.search{
@@ -61,51 +126,25 @@ input.search {
     .search-button{
         bottom: 89vh;
     }
+
 }
 
 @media(min-width: 1500px){
     input.search{
+        bottom: 88vh;
+    }
+    .search-button{
+        bottom: 88vh;
+    }
+   
+}
+
+@media(min-width:1600px) {
+    input.search{
         bottom: 91vh;
     }
+
     .search-button{
         bottom: 91vh;
     }
 }
-
-
-
-/* .results-card {
-    padding-left: 20px;
-    display: flex;
-}
-
-.image-results{
-    border: black solid 1px;
-    box-sizing: border-box;
-    overflow-wrap: break-word;
-    width: 500px;
-    font-family: 'Source Code Pro', monospace;
-    font-weight: lighter;
-}
- 
-.image-return{
-    height: auto;
-    width: 500px;
-    display: flex;
-}
-.other {
-    display: flex;
-    position: absolute;
-    margin-left: 100px;
-    margin-right: 100px;
-    width: 400px;
-    font-family: 'Source Code Pro', monospace;
-    font-weight: lighter;  
-}
-
-.other-button {
-    display: flex;
-    position: absolute;
-    top: 11%;
-    left: 70%;
-} */ 

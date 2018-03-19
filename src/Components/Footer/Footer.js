@@ -9,7 +9,7 @@ const Footer = () => {
     <div>
    <div className ='list'>
        <li> About Us </li>
-       <li> Contact US </li>
+       <li> Contact Us </li>
        <li> Advertise </li>
    </div>
     <div className = 'social'>
