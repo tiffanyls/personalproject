@@ -42,7 +42,7 @@ class Header extends Component {
             {!this.state.user ? (
               <button
                 onClick={() =>
-                  (window.location.href = "/login")
+                  (window.location.href = "http://localhost:3001/login")
                 }
                 className="login"
               >

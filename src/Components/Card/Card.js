@@ -66,7 +66,7 @@ componentWillReceiveProps(nextProps){
                     <p>County: {curr.country}</p>
                     <p>Description: {curr.notes}</p>
                     <p>Latitude: {curr.lat}</p>
-                    <p>Longitute: {curr.lng}</p>
+                    <p>Longitude: {curr.lng}</p>
                     <button onClick={()=>this.toggleEdit(curr.image_id, i)} className="edit" >Edit</button></div>}
                     <button value={curr.image_id} onClick={this.deleteImage} className="delete">Delete</button>    
                 </div>
